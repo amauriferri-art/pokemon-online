@@ -1,0 +1,149 @@
+/* Resetando padrões do navegador */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* Fundo com uma imagem de paisagem Pokémon + Gradiente escuro */
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.8)), 
+                url('https://images.unsplash.com/photo-1613771404784-3a5686aa2be3?q=80&w=1920&auto=format&fit=crop') no-repeat center center/cover;
+    color: #fff;
+}
+
+/* Efeito Glassmorphism (Vidro) no cartão de login */
+.login-container {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 40px;
+    border-radius: 20px;
+    width: 100%;
+    max-width: 400px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+    text-align: center;
+}
+
+/* Estilo do Logo PokeLife */
+.logo-box {
+    margin-bottom: 30px;
+}
+
+.pokeball-logo {
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(to bottom, #ff3b30 50%, #ffffff 50%);
+    border: 4px solid #fff;
+    border-radius: 50%;
+    margin: 0 auto 10px;
+    position: relative;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+.pokeball-logo::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 14px;
+    height: 14px;
+    background: #fff;
+    border: 3px solid #333;
+    border-radius: 50%;
+}
+
+.logo-box h1 {
+    font-weight: 800;
+    font-size: 2.5rem;
+    letter-spacing: 1px;
+}
+
+.logo-box h1 span {
+    color: #ff3b30; /* Vermelho Pokémon */
+}
+
+.logo-box p {
+    font-size: 0.9rem;
+    color: #ccc;
+}
+
+/* Formulário */
+form h2 {
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.input-group {
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+    color: #ddd;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 12px 15px;
+    border: none;
+    border-radius: 8px;
+    background: rgba(0, 0, 0, 0.3);
+    color: #fff;
+    font-size: 1rem;
+    outline: none;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: border 0.3s;
+}
+
+.input-group input:focus {
+    border: 1px solid #ff3b30;
+}
+
+/* Botão Principal */
+.btn-primary {
+    width: 100%;
+    padding: 15px;
+    background: #ff3b30;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+    margin-top: 10px;
+}
+
+.btn-primary:hover {
+    background: #d63026;
+    transform: translateY(-2px);
+}
+
+.toggle-text {
+    margin-top: 20px;
+    font-size: 0.9rem;
+    color: #bbb;
+}
+
+.toggle-text a {
+    color: #ff3b30;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s;
+}
+
+.toggle-text a:hover {
+    color: #fff;
+}
