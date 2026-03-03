@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PokeLife - Batalha</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="battle.css">
+</head>
+<body>
+    <div class="background-overlay"></div>
+
+    <div class="battle-container">
+        <div class="top-section">
+            <div class="hud enemy-hud">
+                <div class="pokemon-info">
+                    <h3 id="enemy-name">Carregando...</h3>
+                    <span class="level">Lv 50</span>
+                </div>
+                <div class="hp-box">
+                    <div class="hp-bar-bg">
+                        <div class="hp-bar" id="enemy-hp"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="sprite-box">
+                <img id="enemy-sprite" src="" alt="Enemy Pokemon" class="pixel-art">
+            </div>
+        </div>
+
+        <div class="bottom-section">
+            <div class="sprite-box player-sprite-box">
+                <img id="player-sprite" src="" alt="Player Pokemon" class="pixel-art">
+            </div>
+            <div class="hud player-hud">
+                <div class="pokemon-info">
+                    <h3 id="player-name">Carregando...</h3>
+                    <span class="level">Lv 50</span>
+                </div>
+                <div class="hp-box">
+                    <div class="hp-bar-bg">
+                        <div class="hp-bar" id="player-hp"></div>
+                    </div>
+                    <div class="hp-text" id="player-hp-text">-- / --</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="control-panel">
+            <div class="battle-log" id="battle-log">
+                Um treinador desafiou você para uma batalha!
+            </div>
+            <div class="action-menu">
+                <button class="move-btn" id="move-1">-</button>
+                <button class="move-btn" id="move-2">-</button>
+                <button class="move-btn" id="move-3">-</button>
+                <button class="move-btn" id="move-4">-</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="client.js"></script>
+</body>
+</html>

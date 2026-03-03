@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PokeLife - Login</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="login-container">
+        <div class="logo-box">
+            <div class="pokeball-logo"></div>
+            <h1>Poke<span>Life</span></h1>
+            <p id="subtitle">Sua jornada em Kanto começa aqui.</p>
+        </div>
+
+        <form id="login-form" class="auth-form">
+            <h2>Acessar Conta</h2>
+            
+            <div class="input-group">
+                <label for="login-email">E-mail ou Treinador</label>
+                <input type="text" id="login-email" placeholder="ash@kanto.com" required>
+            </div>
+
+            <div class="input-group">
+                <label for="login-password">Senha Secreta</label>
+                <input type="password" id="login-password" placeholder="••••••••" required>
+                <div class="forgot-password">
+                    <a href="#" onclick="toggleView('recovery')">Esqueceu sua senha?</a>
+                </div>
+            </div>
+
+            <button type="submit" class="btn-primary">Entrar no Mundo</button>
+            
+            <div class="divider"><span>OU</span></div>
+
+            <button type="button" class="btn-google">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" alt="Google Logo">
+                Continuar com o Google
+            </button>
+            
+            <p class="toggle-text">Novo por aqui? <a href="#" onclick="toggleView('register')">Criar Conta</a></p>
+        </form>
+
+        <form id="register-form" class="auth-form hidden">
+            <h2>Novo Treinador</h2>
+            
+            <div class="input-group">
+                <label for="reg-username">Nome no Jogo</label>
+                <input type="text" id="reg-username" placeholder="Ex: Red" required>
+            </div>
+
+            <div class="input-group">
+                <label for="reg-email">E-mail Pessoal</label>
+                <input type="email" id="reg-email" placeholder="seu@email.com" required>
+            </div>
+
+            <div class="input-group">
+                <label for="reg-password">Criar Senha</label>
+                <input type="password" id="reg-password" placeholder="Mínimo 6 caracteres" required>
+            </div>
+
+            <div class="input-group">
+                <label for="reg-question">Pergunta Secreta (Para recuperar senha)</label>
+                <select id="reg-question" required>
+                    <option value="" disabled selected>Escolha uma pergunta...</option>
+                    <option value="1">Qual o seu Pokémon favorito da Gen 1?</option>
+                    <option value="2">Qual o nome do seu primeiro animal de estimação?</option>
+                    <option value="3">Qual a cidade em que sua mãe nasceu?</option>
+                </select>
+            </div>
+
+            <div class="input-group">
+                <label for="reg-answer">Resposta Secreta</label>
+                <input type="text" id="reg-answer" placeholder="Sua resposta confidencial" required>
+            </div>
+
+            <button type="submit" class="btn-primary">Criar Conta</button>
+            <p class="toggle-text">Já tem uma conta? <a href="#" onclick="toggleView('login')">Fazer Login</a></p>
+        </form>
+
+        <form id="recovery-form" class="auth-form hidden">
+            <h2>Recuperar Senha</h2>
+            <p class="info-text">Preencha os dados abaixo para redefinir o seu acesso.</p>
+            
+            <div class="input-group">
+                <label for="rec-email">E-mail da Conta</label>
+                <input type="email" id="rec-email" placeholder="seu@email.com" required>
+            </div>
+
+            <div class="input-group">
+                <label for="rec-answer">Resposta da Pergunta Secreta</label>
+                <input type="text" id="rec-answer" placeholder="Digite sua resposta cadastrada" required>
+            </div>
+
+            <button type="submit" class="btn-primary">Redefinir Senha</button>
+            <p class="toggle-text"><a href="#" onclick="toggleView('login')">Voltar para o Login</a></p>
+        </form>
+    </div>
+
+    <script>
+        // Lógica de alternância das telas
+        const forms = {
+            'login': document.getElementById('login-form'),
+            'register': document.getElementById('register-form'),
+            'recovery': document.getElementById('recovery-form')
+        };
+
+        function toggleView(viewName) {
+            // Esconde todas
+            Object.values(forms).forEach(form => form.classList.add('hidden'));
+            // Mostra a selecionada
+            forms[viewName].classList.remove('hidden');
+        }
+
+        // Lógica provisória de Login para te jogar pro jogo
+        document.getElementById('login-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const emailOrUser = document.getElementById('login-email').value.trim();
+            // Pega o que vier antes do @ (se for email) ou usa o próprio nome
+            const trainerName = emailOrUser.includes('@') ? emailOrUser.split('@')[0] : emailOrUser;
+            
+            if(trainerName.length > 2) {
+                sessionStorage.setItem('pokeLifeUsername', trainerName);
+                window.location.href = 'battle.html';
+            }
+        });
+
+        // Previne o recarregamento ao enviar formulários de registro e recuperação
+        document.getElementById('register-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert("Conta criada com sucesso! (Simulação visual pronta)");
+            toggleView('login');
+        });
+
+        document.getElementById('recovery-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert("Se os dados estiverem corretos, uma nova senha foi enviada para o seu e-mail.");
+            toggleView('login');
+        });
+    </script>
+</body>
+</html>
